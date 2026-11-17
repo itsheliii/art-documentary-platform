@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- support for special characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- helps the page fit mobile screens correctly -->
+    <meta name="description" content="Heli — a personal art portfolio where every painting has a story.">
+    <title>Heli | Art, Stories & Beyond</title>
+
+    <!-- Fonts: an elegant serif for headings (matches the logo), a clean sans-serif for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Our own styles. The path is relative to THIS file: index.html → css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- HEADER: the bar at the top with the logo and the navigation links -->
+    <header class="site-header">
+        <nav class="nav">
+            <a href="#home" class="nav-logo">
+                <img src="images/heli-logo.png" alt="Heli — Art, Stories, Beyond">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN: everything that is the actual content of the page -->
+    <main>
+
+        <!-- HERO: the first thing visitors see. id="home" is what the "Home" link (#home) jumps to -->
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">Welcome to Heli</p>
+                <!-- Only ONE h1 per page: it tells browsers and search engines what the page is about -->
+                <h1>Every painting has a story.</h1>
+                <p>
+                    Art, stories, and the meaning behind every painting.
+                    <!-- TODO: write a sentence or two in your own voice about your featured painting -->
+                </p>
+                <a href="#gallery" class="button">Explore the gallery</a>
+            </div>
+            <figure class="hero-art">
+                <img src="images/sample-painting.jpg" alt="Watercolor painting of a white cottage with a red roof at the end of a dirt path through a green meadow">
+                <figcaption>Featured: <em>Cottage on the Hill</em> (placeholder title)</figcaption>
+            </figure>
+        </section>
+
+        <!-- The sections below are placeholders so every nav link has somewhere to go.
+             We will fill each one in on later days. -->
+
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <p>Paintings will appear here soon.</p>
+        </section>
+
+        <section id="stories" class="section section-alt">
+            <h2>Stories</h2>
+            <p>The inspiration and emotions behind each piece.</p>
+        </section>
+
+        <section id="shop" class="section">
+            <h2>Shop</h2>
+            <p>Original paintings available for purchase.</p>
+        </section>
+
+        <section id="about" class="section section-alt">
+            <h2>About</h2>
+            <p>A little about me, the artist behind Heli.</p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: the bottom of every page -->
+    <footer class="site-footer">
+        <!-- The year is filled in by js/script.js, so you never have to update it by hand -->
+        <p>&copy; <span id="year"></span> Heli. All artwork and stories belong to the artist.</p>
+    </footer>
+
+    <!-- The script goes at the END of body, so all the HTML above exists before the JavaScript runs -->
+    <script src="js/script.js"></script>
+</body>
+</html>

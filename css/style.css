@@ -1,0 +1,210 @@
+/* ==========================================================
+   Main stylesheet
+   Read top to bottom: variables → reset → layout pieces
+   ========================================================== */
+
+
+/* ---------- 1. Design tokens (CSS variables) ----------
+   Colors are taken from the logo. Define them ONCE here and
+   reuse them with var(--name). Change one value → whole site updates. */
+   :root {
+    --cream:     #fbf7f2;   /* page background, like watercolor paper */
+    --blush:     #f3dfd9;   /* soft pink from the dress */
+    --gold:      #b8925a;   /* the little star */
+    --ink:       #1f1a17;   /* the "Heli" lettering */
+    --ink-soft:  #5c534d;   /* body text, a bit lighter than headings */
+
+    --font-heading: "Cormorant Garamond", Georgia, serif;
+    --font-body:    "Lato", Arial, sans-serif;
+
+    --max-width: 1100px;    /* content never gets wider than this */
+}
+
+
+/* ---------- 2. Small reset ----------
+   Browsers add their own default spacing; we remove the bits that get in the way. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;  /* width now INCLUDES padding + border: much easier to reason about */
+}
+
+html {
+    scroll-behavior: smooth; /* nav links glide to their section instead of jumping */
+}
+
+body {
+    margin: 0;
+    background-color: var(--cream);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;         /* images never overflow their container */
+    display: block;
+}
+
+h1, h2 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+
+/* ---------- 3. Header & navigation ---------- */
+.site-header {
+    position: sticky;        /* stays at the top while you scroll */
+    top: 0;
+    z-index: 10;             /* sits above the page content */
+    background-color: rgba(251, 247, 242, 0.92); /* cream, slightly see-through */
+    border-bottom: 1px solid var(--blush);
+}
+
+.nav {
+    max-width: var(--max-width);
+    margin: 0 auto;          /* "auto" left/right = centered */
+    padding: 0.5rem 1.5rem;
+    display: flex;           /* put logo and links in one row */
+    align-items: center;
+    justify-content: space-between; /* logo on the left, links on the right */
+}
+
+.nav-logo img {
+    height: 56px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;        /* remove the bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.75rem;
+}
+
+.nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+
+/* ---------- 4. Hero ---------- */
+.hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two equal columns: text | painting */
+    gap: 3rem;
+    align-items: center;
+}
+
+.eyebrow {                   /* the small label above the big heading */
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin: 0;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* grows with the screen, but stays between 2.5rem and 4rem */
+    margin: 0.5rem 0 1rem;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+    border-radius: 999px;    /* fully rounded "pill" shape */
+    transition: background-color 0.2s;
+}
+
+.button:hover,
+.button:focus-visible {
+    background-color: var(--gold);
+}
+
+.hero-art {
+    margin: 0;
+}
+
+.hero-art img {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(31, 26, 23, 0.15); /* soft shadow so the painting "lifts" off the page */
+}
+
+.hero-art figcaption {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+}
+
+
+/* ---------- 5. Placeholder sections ---------- */
+.section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    scroll-margin-top: 80px; /* stops the sticky header from covering the heading after a nav click */
+}
+
+.section-alt {
+    background-color: var(--blush);
+}
+
+.section h2 {
+    font-size: 2.25rem;
+    margin: 0 0 0.5rem;
+}
+
+
+/* ---------- 6. Footer ---------- */
+.site-footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--blush);
+}
+
+
+/* ---------- 7. Responsive: small screens ----------
+   Everything above is the desktop layout. These rules only apply
+   when the screen is 768px wide or less (tablets and phones). */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; /* stack logo above links */
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr; /* one column: text, then painting */
+        text-align: center;
+        padding-top: 2rem;
+    }
+}

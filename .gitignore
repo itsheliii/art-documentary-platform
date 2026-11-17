@@ -1,0 +1,17 @@
+# Files git should never track
+
+# Operating system junk
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Secrets — NEVER commit these (passwords, API keys, Stripe keys, AWS keys)
+.env
+*.env
+
+# Java / Spring Boot build output (for later phases)
+target/
+*.class
