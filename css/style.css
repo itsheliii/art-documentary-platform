@@ -208,3 +208,41 @@ h1, h2 {
         padding-top: 2rem;
     }
 }
+
+/* -------------- Gallery -------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: var(--max-width);
+    margin: 2rem auto 0;
+}
+
+.art-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(31, 26, 23, 0.08);
+    transition: transform 0.3s;
+}
+
+.art-card:hover {
+    transform: translateY(-6px);
+}
+
+.art-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.art-card h3 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    margin: 1rem 1rem 0.25rem;
+}
+
+.art-card p {
+    margin: 0 1rem 1.25rem;
+    font-size: 0.9rem;
+}
